@@ -1,6 +1,5 @@
 //Pattern:Sliding window
 //Difficult:Medium
-
 #include<bits/stdc++.h>
 using namespace std;
 
