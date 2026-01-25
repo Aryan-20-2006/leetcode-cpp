@@ -7,7 +7,7 @@ This repository contains my Data Structures and Algorithms practice in C++, foll
 -Arrays and Hashing
 -Two Pointers
 -Slding Window
--MOre coming...
+-Mpre coming...
 
 ##Competitive Programming
 -Leetcode:https://leetcode.com/u/d8Yvp5F04B/
