@@ -43,3 +43,15 @@ public:
         return mn.back();
     }
 };
+
+int main(){
+    MinStack obj;
+    obj.push(-2);
+    obj.push(0);
+    int top=obj.top();
+    int min=obj.getMin();
+    cout<<top<<endl;
+    cout<<min<<endl;
+
+    return 0;
+}
