@@ -16,7 +16,7 @@ using namespace std;
             for(int i=0;i<n;i++){
                 while(st.empty()==false && temperatures[i]>temperatures[st.top()]){
                     int prev=st.top();
-                    st.pop();
+                    st.pop(); //correct way to write otherwise it will return a void type
                     answer[prev]=i-prev;
                 }
 
