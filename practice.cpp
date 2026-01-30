@@ -1,53 +1,30 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-class MinStack{
-
-    vector<int> st;
-    vector<int> mn;
+vector <int> nextGreaterElement(vector<int>& nums1, vector<int> &nums2){
 
 
-    public:
+    unordered_map<int,int>map;
+    stack<int>st;
 
-        MinStack(){}
-
-        void push(int val){
-            st.push_back(val);
-
-            if(mn.empty()){
-                mn.push_back(val);
-            }
-            else{
-                mn.push_back(min(val,mn.back()));
-            }
+    for(int i=0;i<nums2.size();i++){
+        while(!st.empty() && st.top()<nums2[i]){
+            map[st.top()]=nums2[i];
+            st.pop();
         }
 
-
-        void pop(){
-            st.pop_back();
-            mn.pop_back();
-        }
-
-        int top(){
-            return st.back();
-        }
-
-        int getMin(){
-           return mn.back();
-        }
-
-    };
+        st.push(nums2[i]);
+    }
 
 
-int main(){
-    MinStack obj;
-    obj.push(-2);
-    obj.push(0);
-    int top=obj.top();
-    int min=obj.getMin();
-    cout<<top<<endl;
-    cout<<min<<endl;
+    while(!st.empty()){
+        map[st.top()]=-1;
+        st.pop();
+    }
 
-    return 0;
+    vector<int>ans;
+    for(int j=0;j<nums1.size();j++){
+        ans.push_back(map[nums1[j]]);
+    }
+
 }
-
