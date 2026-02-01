@@ -1,30 +1,35 @@
+//Problem:Find Minimum in Rotated Sorted Array
+//Difficulty:Medium
+
 #include<bits/stdc++.h>
 using namespace std;
 
-vector <int> nextGreaterElement(vector<int>& nums1, vector<int> &nums2){
+int findMin(vector<int>& nums){
 
+    int left=0;
+    int right=nums.size()-1;
 
-    unordered_map<int,int>map;
-    stack<int>st;
+    while(left<right){
+        int mid=left+(right-left)/2;
 
-    for(int i=0;i<nums2.size();i++){
-        while(!st.empty() && st.top()<nums2[i]){
-            map[st.top()]=nums2[i];
-            st.pop();
+        if(nums[mid]>nums[right]){ //mid is in the left sorted portion
+            left=mid+1;
         }
 
-        st.push(nums2[i]);
+        else{ //mid is in the right sorted portion
+            right=mid;
+        }
+
     }
 
+return nums[left];
 
-    while(!st.empty()){
-        map[st.top()]=-1;
-        st.pop();
-    }
+}
 
-    vector<int>ans;
-    for(int j=0;j<nums1.size();j++){
-        ans.push_back(map[nums1[j]]);
-    }
+int main(){
+    
 
+    vector<int> nums={3,4,5,1,2};
+    cout<<findMin(nums)<<endl;
+    return 0;
 }
