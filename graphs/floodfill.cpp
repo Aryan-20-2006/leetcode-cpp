@@ -14,7 +14,7 @@
 using namespace std;
 
 //in number of islands-it was char so here in image we are using int not char
-void bfs(int sr, int sc,vector<vector<int>> &image,int newcolor){
+void bfs(int sr, int sc,vector<vector<int>> &image,int color,int newcolor){
 
     int m=image.size();
     int n=image[0].size();
