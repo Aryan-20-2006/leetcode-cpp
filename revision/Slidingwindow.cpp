@@ -115,3 +115,76 @@ using namespace std;
 
 // }
 
+
+//First negative in every window of size k
+
+/*
+
+for(int i=0;i<n-k;i++)
+    bool found=false;
+for(j=i;j<i+k;j++){
+    if(arr[j]<0)
+        result.push_back(arr[j]);
+        bool found=true;
+        break;
+}
+
+    if(!found)
+        return 0;
+
+return result;
+*/
+
+//Optimal soln-Use a queue to store the negative elements
+
+// vector<int>firstNeg(vector<int>&arr, int k){
+
+
+//     vector<int>result;
+//     queue<int>q;
+//     int n=arr.size();
+
+//     for(int i=0;i<n;i++){
+//         if(arr[i]<0)
+//             q.push(arr[i]);
+
+//         //checking if the window is complete
+//         if(i>=k-1){
+
+//             if(q.empty())
+//                 result.push_back(0);
+
+//             else
+//                 result.push_back(q.front());
+
+            
+//             //checking if the queue is not empty and when we have to slide the window if the outgoing element is equal to q.front()
+//             if(!q.empty() && q.front()==arr[i-k+1]){
+//                 q.pop();
+//             }
+
+//         }
+
+
+//     }
+
+// return result;
+
+// }
+
+// int main()
+// {
+
+//     vector<int>arr={12,1,3,5};
+//     int k=3;
+    
+//     vector<int>result=firstNeg(arr,k);
+//     for(int i=0;i<result.size();i++){
+//         cout<< result[i] << " ";
+//     }
+
+//     return 0;
+
+// }
+
+
