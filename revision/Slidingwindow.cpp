@@ -187,4 +187,48 @@ return result;
 
 // }
 
+//Longest susbtring with k unique characters
+// int longsubstr(string s, int k){
 
+//     int maxlen=0;
+//     unordered_map<char,int>map;
+//     int l=0;
+//     int r=0;
+
+//     while(r<s.size()){
+//         map[s[r]]++; //keeping increasing character count as you move across the string
+    
+//         while(map.size()>k) { //checking if the map is valid 
+
+//             map[s[l]]--;
+            
+//             if(map[s[l]]==0){
+//                 map.erase(s[l]);
+            
+//             }
+
+//             l=l+1;
+            
+//         }
+
+//         if(map.size()<=k){ //since we're looking for at most k distinct characters
+//             int length=r-l+1;
+//             maxlen=max(maxlen,length);
+            
+//         }
+
+//         r=r+1;
+//     }
+
+// return maxlen;
+
+// }
+
+// int main(){
+
+//     int k=2;
+//     string s="aaabbccd";
+//     cout<<longsubstr(s,k)<<" ";
+//     return 0;
+
+// }
