@@ -232,3 +232,59 @@ return result;
 //     return 0;
 
 // }
+
+//Number of susbtrings containing all three characters
+
+//Brute Force-Look for all possible strings containing a,b,c
+
+// int countSubstr(string s){
+
+//     int count=0;
+//     int n=s.size();
+
+//     for(int i=0;i<n;i++){
+//         vector<int>hash(3,0);
+
+//         for(int j=i;j<n;j++){
+
+//             //mark them as seen
+//             hash[s[j]-'a']=1;
+
+//             if(hash[0]+hash[1]+hash[2]==3){
+//                 count++;
+//             }
+//         }
+//     }
+
+// return count;
+
+// }
+
+//Optimal approach-Instead of looking for every single susbtring, we can use the 1+min of all three indices to find the total number of susbtrings
+
+int countSubstr(string s){
+
+    int n=s.size();
+    vector<int>map(3,-1);
+    int count=0;
+
+    for(int i=0;i<n;i++){
+        map[s[i]-'a']=i; //updating the index every time 
+
+        if(map[0]!=1 && map[1]!=-1 && map[2]!=-1){ //checking if the characters are there
+            count=count+(1+min({map[0],map[1],map[2]}));
+        }
+    }
+
+return count;
+
+}
+
+
+int main(){
+
+    string s="abcabc";
+    cout<<countSubstr(s)<<" ";
+    return 0;
+
+}
