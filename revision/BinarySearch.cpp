@@ -203,4 +203,131 @@ using namespace std;
 
 // }
 
+//Aggressive Cows
+//k refers to the cows
+// bool canWePlace(vector<int>&nums, int distance, int k){
+
+//     int n=nums.size();
+//     int countcows=1;
+//     int last=nums[0]; //recently placed cow
+
+//     for(int i=1;i<n;i++){
+//         if(nums[i]-last>=distance){
+//             countcows++;
+//             last=nums[i];
+//         }
+
+//         if(countcows>=k){ //if you find a higher value, keep returning true
+//             return true;
+//         }
+//     }
+
+// return false;
+
+// }
+
+// int aggressiveCows(vector<int>&nums, int k){
+
+
+//     sort(nums.begin(),nums.end());
+//     int low=0;
+//     int n=nums.size();
+//     int high=nums[n-1]-nums[0]; //max-min
+
+//     while(low<=high){
+//         int mid=low+(high-low)/2;
+
+//         if(canWePlace(nums,mid,k)==true){
+//             low=mid+1;
+//         }
+
+//         else{
+//             high=mid-1;
+//         }
+//     }
+
+// return high;
+
+// }
+
+// int main(){
+
+//     vector<int>nums={0,3,4,7,10,9};
+//     int k=4; //no of cows to be placed
+//     cout<<aggressiveCows(nums,k)<<" ";
+//     return 0;
+
+
+// }
+
+
+//Lower and Upper bound
+// int lowerBound(vector<int>&nums, int x){
+
+//     int low=0;
+//     int n=nums.size();
+//     int high=n-1;
+
+//     while(low<=high){
+//         int mid=low+(high-low)/2;
+
+//         if(nums[mid]>=x){
+//             return mid;
+//         }
+
+//         else{
+//             if(nums[mid]<x){
+//                 low=mid+1;
+//             }
+
+//             else{
+//                 high=mid-1;
+//             }
+
+//         }
+//     }
+
+// return low;
+
+// }
+
+int upperBound(vector<int>&nums, int x){
+
+    int low=0;
+    int n=nums.size();
+    int high=n-1;
+    int ans=n; //by default answer would be this
+
+    while(low<=high){
+        int mid=low+(high-low)/2;
+
+        if(nums[mid]>x){
+            ans=mid; //not needed but mid could still be an answer
+            high=mid-1; //find a smaller valid index on the left
+        }
+
+        else{
+            low=mid+1;
+        }
+
+    }
+    
+return ans;
+    
+}
+
+
+int main(){
+
+    vector<int>nums={1,2,2,3};
+    int x=2;
+    cout<<upperBound(nums,x)<<" ";
+    return 0;
+
+}
+
+
+
+
+
 
